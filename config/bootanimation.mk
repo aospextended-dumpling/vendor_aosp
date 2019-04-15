@@ -14,9 +14,9 @@
 
 #Bootanimation
 
-TARGET_BOOT_ANIMATION_RES ?= 1080
+TARGET_BOOT_ANIMATION_RES = 1080
 
-else ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
+ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1080.zip:system/media/bootanimation.zip
 else
      $(warning Defined bootanimation res is wrong, using generic bootanimation )

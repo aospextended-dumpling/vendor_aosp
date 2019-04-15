@@ -53,16 +53,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-power-whitelist.xml:system/etc/sysconfig/aex-power-whitelist.xml
 
-# Custom AEX packages
-ifeq ($(TARGET_USE_GCAM),true)
-PRODUCT_PACKAGES += \
-    Gcam
-endif
-
-ifeq ($(TARGET_USE_JELLY),true)
-PRODUCT_PACKAGES += \
-    Jelly
-endif
+# Google Assistant
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.opa.eligible_device=true
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -73,18 +66,16 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 PRODUCT_PACKAGES += \
-    Terminal \
     LatinIME \
-    LiveWallpapers \
     LiveWallpapersPicker \
     Stk \
-    ViaBrowser \
-    AEXPapers \
-    RetroMusicPlayer \
-    WallpaperPickerGoogle \
-    MarkupGoogle \
-    WellbeingPrebuilt \
-    Recorder \
+    AdAway \
+    OnePlusCamera \
+    OnePlusGallery \
+    OnePlusCameraService \
+    OnePlusFramework \
+    SubstratumSignature \
+    SmartPack \
     WeatherClient
 
 # Weather
@@ -166,7 +157,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HideCutout \
     StatusBarStock
-    
+
 # Markup libs
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
@@ -236,10 +227,6 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
     vendor/aosp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 endif
-
-# AEX-specific init files
-$(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
-    $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
