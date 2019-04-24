@@ -2740,6 +2740,37 @@
       type="mms"
   />
 
+  <apn carrier="COOPVOCE WEB"
+      mcc="222"
+      mnc="01"
+      apn="web.coopvoce.it"
+      proxy=""
+      port=""
+      user=""
+      password=""
+      mmsc=""
+      mvno_type="spn"
+      mvno_match_data="Coop Mobile"
+      type="default,supl"
+  />
+
+  <apn carrier="COOPVOCE MMS"
+      mcc="222"
+      mnc="01"
+      apn="mms.coopvoce.it"
+      proxy=""
+      port=""
+      user=""
+      password=""
+      mmsc="http://mms.coop.it/servlets/mms"
+      mmsproxy="213.230.130.89"
+      mmsport="80"
+      mvno_type="spn"
+      mvno_match_data="Coop Mobile"
+      authtype="1"
+      type="mms"
+  />
+
   <apn carrier="Internet"
       mcc="222"
       mnc="01"
